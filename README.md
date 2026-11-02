@@ -7,6 +7,7 @@ Dự án phân tích dữ liệu giao dịch thương mại điện tử bằng 
 - [Tổng quan](#tổng-quan)
 - [Cấu trúc dự án](#cấu-trúc-dự-án)
 - [Yêu cầu và cài đặt](#yêu-cầu-và-cài-đặt)
+- [Nguồn dữ liệu](#nguồn-dữ-liệu)
 - [Dữ liệu đầu vào](#dữ-liệu-đầu-vào)
 - [Cách chạy](#cách-chạy)
 - [Chi tiết từng notebook](#chi-tiết-từng-notebook)
@@ -36,7 +37,7 @@ ecommerce.csv ──► processing.ipynb ──► clustering.ipynb ──► an
 ├── clustering.ipynb      # Chọn k (Elbow), phân cụm K-Means, trực quan hóa, mô tả cụm
 ├── anova.ipynb           # Kiểm định ANOVA và boxplot theo cụm
 ├── Data/
-│   ├── ecommerce.csv              # [đầu vào] dữ liệu giao dịch gốc
+│   ├── ecommerce.csv              # [đầu vào] dữ liệu giao dịch gốc (tải từ Kaggle)
 │   ├── ecommerce_rfm.csv          # [sinh ra] RFM chưa loại outlier
 │   ├── ecommerce_rfm_clean.csv    # [sinh ra] RFM sau khi loại outlier
 │   └── ecommerce_rfm_scaled.csv   # [sinh ra] RFM đã chuẩn hóa
@@ -66,9 +67,21 @@ Cài đặt:
 pip install pandas seaborn matplotlib scikit-learn scipy statsmodels jupyter
 ```
 
+## Nguồn dữ liệu
+
+Dự án sử dụng bộ dữ liệu **[E-Commerce Data](https://www.kaggle.com/datasets/carrie1/ecommerce-data)** trên Kaggle, là bản phân phối của bộ **Online Retail** thuộc UCI Machine Learning Repository (Daqing Chen, 2015, DOI: [10.24432/C5BW33](https://doi.org/10.24432/C5BW33)).
+
+- Nội dung: toàn bộ giao dịch từ 01/12/2010 đến 09/12/2011 của một cửa hàng bán lẻ trực tuyến đăng ký tại Anh, chuyên bán quà tặng.
+- Quy mô: 541.909 dòng, 8 cột (`InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`).
+- Cách dùng: tải file `data.csv` từ Kaggle, đổi tên thành `ecommerce.csv` và đặt vào thư mục `Data/`.
+
+Tài liệu tham khảo:
+
+> Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
+
 ## Dữ liệu đầu vào
 
-File `ecommerce.csv` (đọc với `encoding='ISO-8859-1'`) cần có tối thiểu các cột:
+File `ecommerce.csv` (đọc với `encoding='ISO-8859-1'`) trong dự án này chỉ dùng các cột sau:
 
 | Cột | Mô tả |
 |---|---|
@@ -80,7 +93,7 @@ File `ecommerce.csv` (đọc với `encoding='ISO-8859-1'`) cần có tối thi�
 
 ## Cách chạy
 
-1. Đặt `ecommerce.csv` vào thư mục `Data/` và tạo sẵn thư mục `Cluster/`.
+1. Tải dữ liệu từ [Kaggle](https://www.kaggle.com/datasets/carrie1/ecommerce-data), đổi tên `data.csv` thành `ecommerce.csv` và đặt vào thư mục `Data/`. Tạo sẵn thư mục `Cluster/`.
 2. **Sửa lại các đường dẫn** trong notebook (hiện đang là đường dẫn tuyệt đối trên máy tác giả, dạng `D:\Uni\...`). Xem phần Lưu ý.
 3. Chạy lần lượt các notebook, mỗi notebook chạy từ trên xuống dưới:
    1. `processing.ipynb`
