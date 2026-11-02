@@ -1,0 +1,21 @@
+# Python cache (thư mục __pycache__ và imports.cpython-311.pyc trong ảnh của bạn)
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Môi trường ảo
+.venv/
+venv/
+env/
+
+# Dữ liệu: file gốc thường nặng, file còn lại là sinh ra khi chạy notebook
+Data/
+Cluster/
+
+# IDE / hệ điều hành
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
